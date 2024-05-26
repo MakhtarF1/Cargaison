@@ -1,0 +1,66 @@
+[
+    {
+        "poidsMax": "435",
+        "dateDepart": "2024-05-16",
+        "lieuDepart": "dakar",
+        "lieuArrivee": "paris",
+        "distance": "2435",
+        "typeCargaison": "maritime"
+    },
+    {
+        "poidsMax": "435",
+        "dateDepart": "2024-05-16",
+        "lieuDepart": "pikine",
+        "lieuArrivee": "yeumbeul",
+        "distance": "2435",
+        "typeCargaison": "maritime"
+    },
+    {
+        "poidsMax": "435",
+        "dateDepart": "2024-05-16",
+        "lieuDepart": "Zone A",
+        "lieuArrivee": "Zone B",
+        "distance": "2435",
+        "typeCargaison": "maritime"
+    },
+    {
+        "poidsMax": "345",
+        "dateDepart": "2024-05-16",
+        "lieuDepart": "Paris",
+        "lieuArrivee": "espagne",
+        "distance": "345",
+        "typeCargaison": "routiere"
+    },
+    {
+        "poidsMax": "345",
+        "dateDepart": "2024-05-16",
+        "lieuDepart": "Italie",
+        "lieuArrivee": "Mauritanie",
+        "distance": "345",
+        "typeCargaison": "routiere"
+    },
+    {
+        "poidsMax": "345",
+        "dateDepart": "2024-05-16",
+        "lieuDepart": "mali",
+        "lieuArrivee": "Congo",
+        "distance": "345",
+        "typeCargaison": "routiere"
+    },
+    {
+        "poidsMax": "345",
+        "dateDepart": "2024-05-16",
+        "lieuDepart": "Pole Nord",
+        "lieuArrivee": "Pole Sud",
+        "distance": "345",
+        "typeCargaison": "routiere"
+    },
+    {
+        "poidsMax": "345",
+        "dateDepart": "2024-05-16",
+        "lieuDepart": "Mbour",
+        "lieuArrivee": "yeumbeul",
+        "distance": "345",
+        "typeCargaison": "routiere"
+    }
+]

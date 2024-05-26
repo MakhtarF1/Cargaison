@@ -1,0 +1,20 @@
+[
+    {
+        "identifiant_produit": "2",
+        "nom_produit": "retyu",
+        "quantite": "2345",
+        "typepro": "incassable"
+    },
+    {
+        "identifiant_produit": "2",
+        "nom_produit": "retyu",
+        "quantite": "2345",
+        "typepro": "incassable"
+    },
+    {
+        "identifiant_produit": "34",
+        "nom_produit": "EZR",
+        "quantite": "2345",
+        "typepro": "cassable"
+    }
+]
