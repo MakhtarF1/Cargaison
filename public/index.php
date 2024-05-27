@@ -141,7 +141,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="left flex-initial w-[200vh] m-3  shadow-lg shadow-gray-700 rounded-lg bg-cyan-950 text-black">
             <h1 class="text-3xl font-bold text-stone-300 flex justify-center aligns-center pt-4 "><span class="border-b-4">Tableau Des Cargaisons</span></h1>
             <div class="line1  my-[2vh]  mx-[2vh]  w-[130vh] flex justify-between">
-                <div class="bloc1 w-1/3 mr-5 rounded-box bg-blue-600 px-8 text-white ">
+                <div class="bloc1 w-1/3 mr-5 rounded-box bg-blue-600 px-8 text-white shadow-lg shadow-blue-500/50">
                     <div class="div-nombre flex justify-between  pt-4">
                         <span class="text-3xl font-bold  px-4 rounded-full bg-purple-200 text-black ">456</span>
                         <span class="text-3xl"><i class="fa-solid fa-ship"></i></span>
@@ -149,14 +149,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="text  text-xl">Total de cargaison Maritime</div>
                 </div>
 
-                <div class="bloc1 w-1/3 mr-5  rounded-box bg-purple-900 px-8 text-white">
+                <div class="bloc1 w-1/3 mr-5  rounded-box bg-purple-900 px-8 text-white shadow-lg shadow-indigo-500/40 ">
                     <div class="div-nombre flex justify-between  pt-4">
                         <span class="text-3xl font-bold  px-4 rounded-full bg-purple-200 text-black">357</span>
                         <span class="text-3xl"><i class="fa-solid fa-truck"></i></span>
                     </div>
                     <div class="text  text-xl">Total de cargaison Routiere</div>
                 </div>
-                <div class="bloc1 w-1/3 mr-5  rounded-box px-8 bg-violet-700 text-white">
+                <div class="bloc1 w-1/3 mr-5  rounded-box px-8 bg-violet-700 text-white shadow-lg shadow-indigo-500/40 ">
                     <div class="div-nombre flex justify-between  pt-4">
                         <span class="text-3xl font-bold  px-4 rounded-full bg-purple-200 text-black">489</span>
                         <span class="text-3xl"><i class="fa-solid fa-plane"></i></span>
@@ -168,10 +168,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <button class="btn bg-blue-900 text-white  border-none text-xl hover:text-blue-900 hover:bg-neutral-300" onclick="my_modal_3.showModal()">Ajouter cargaison</button>
                 <dialog id="my_modal_3" class="modal">
                     <div class="modal-box">
-                        <form id="cargaisonForm" method="post" class="p-6 text-white">
-                            <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" type="button" onclick="my_modal_3.close()">X</button>
-                            <div class="div-carg">
-                                <h2 class="flex justify-center items-center mb-8 text-2xl font-bold">Ajouter Une Cargaison</h2>
+                        <div class="container flex ">
+                            <form id="cargaisonForm" method="post" class="p-6 text-white">
                                 <div class="mb-4">
                                     <input type="text" id="poidsMax" placeholder="Poids-max" name="poids" class="input input-bordered input-accent w-full max-w-xs pl-2" required />
                                 </div>
@@ -193,7 +191,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 </div>
                                 <div class="mb-4">
                                     <label class="mb-3 text-xl">Type de cargaison</label>
-                                    <select id="typeCargaison" class="input input-bordered input-accent w-full max-w-xs " name="type" required>
+                                    <select id="typeCargaison" class="input input-bordered input-accent w-full max-w-xs" name="type" required>
                                         <option value="maritime">Maritime</option>
                                         <option value="aerienne">Aérienne</option>
                                         <option value="routiere">Routière</option>
@@ -202,19 +200,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <div class="mb-4">
                                     <button type="submit" class="btn btn-blue rounded-lg bg-indigo-700">Ajouter</button>
                                 </div>
-                            </div>
-                        </form>
+                            </form>
+
+                            <div id="map" class="leaflet-map"></div>
+                        </div>
+
                     </div>
                 </dialog>
             </div>
 
-            <div class="line2 w-[130vh] border  m-5 rounded-lg bg-slate-200 ">
+            <div class="line2 w-[130vh] border  m-5 rounded-lg bg-slate-200 shadow-lg shadow-blue-500/40 ">
                 <table class="w-[120vh] m-4 ml-10 ">
                     <thead>
                         <tr class="text-black border-2 border-blue-200  bg-blue-200 font-bold text-xl ">
                             <th class="border-2 border-2  p-4">id</th>
                             <th class="border-2">depart</th>
-                            <th class="border-2">arrivee</t
+                            <th class="border-2">arrivee</th>
                             <th class="border-2">poids</th>
                             <th class="border-2">type</th>
                             <th class="border-2">ajout produits</th>
@@ -238,7 +239,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </tbody>
                 </table>
 
-                
+
 
                 <!-- modal ajout produit -->
                 <dialog id="modalAjoutProduits" class="modal">
@@ -279,8 +280,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </dialog>
             </div>
         </div>
-        <div class="right flex-initial w-[100vh]  m-3  shadow-lg shadow-gray-700 bg-cyan-950 rounded-lg">
-            <div class="infos  bg-slate-200 border rounded-lg m-5 text-black font-bold p-4">
+        <div class="right flex-initial w-[100vh]  m-3  shadow-lg shadow-gray-700 bg-cyan-950 rounded-lg ">
+            <div class="infos  bg-slate-200 border rounded-lg m-5 text-black font-bold p-4 shadow-lg shadow-indigo-500/50 ">
                 <h1 class="mb-4 flex justify-center items-center text-2xl border-b border-black">Details Cargaisons</h1>
                 <div class="mb-4">
                     <span class="text-xl"> Cargaison : </span><span>302</span>
@@ -302,7 +303,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
             </div>
 
-            <div class="div text-xl  text-black m-4  p-4 rounded-lg   bg-slate-200">
+            <div class="div text-xl  text-black m-4  p-4 rounded-lg   bg-slate-200 shadow-lg shadow-indigo-500/50 ">
                 <div class="hover:bg-white hover:rounded-full w-80 mb-6 hover:py-4 font-bold"> <button class="ml-3"><span class=" mr-4 text-3xl"><i class="fa-solid fa-gear"></i> </span> Parametre</button></div>
                 <div class="hover:bg-white hover:rounded-full w-80 mb-6 hover:py-4 font-bold"> <button class="ml-3"><span class="mr-6"><i class="fa-solid fa-phone"></i> </span> contact</button></div>
                 <div class="hover:bg-white hover:rounded-full w-80 mb-6 hover:py-4 font-bold"><button class="ml-3"><span class="mr-8"><i class="fa-solid fa-location-dot"></i> </span> Notre Position</button></div>
@@ -312,6 +313,101 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </div>
     </div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <script>
+        let map, departMarker, arriveeMarker;
+
+        // Initialisation de la carte Leaflet
+        map = L.map("map").setView([0, 0], 2);
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            maxZoom: 18,
+        }).addTo(map);
+
+        // Gestion du clic sur la carte pour placer les marqueurs
+        map.on("click", function(e) {
+            if (!departMarker) {
+                departMarker = L.marker(e.latlng, {
+                        draggable: true
+                    }).addTo(map)
+                    .bindPopup("Lieu de départ")
+                    .openPopup();
+                updateInputWithLocationName(e.latlng, "lieuDepart");
+
+                departMarker.on('dragend', function(event) {
+                    let marker = event.target;
+                    let position = marker.getLatLng();
+                    updateInputWithLocationName(position, "lieuDepart");
+                    if (arriveeMarker) {
+                        calculateDistance(position, arriveeMarker.getLatLng());
+                    }
+                });
+
+            } else if (!arriveeMarker) {
+                arriveeMarker = L.marker(e.latlng, {
+                        draggable: true
+                    }).addTo(map)
+                    .bindPopup("Lieu d'arrivée")
+                    .openPopup();
+                updateInputWithLocationName(e.latlng, "lieuArrivee");
+                calculateDistance(departMarker.getLatLng(), e.latlng);
+
+                arriveeMarker.on('dragend', function(event) {
+                    let marker = event.target;
+                    let position = marker.getLatLng();
+                    updateInputWithLocationName(position, "lieuArrivee");
+                    calculateDistance(departMarker.getLatLng(), position);
+                });
+            } else {
+                arriveeMarker.setLatLng(e.latlng);
+                updateInputWithLocationName(e.latlng, "lieuArrivee");
+                calculateDistance(departMarker.getLatLng(), e.latlng);
+            }
+        });
+
+        // Fonction pour mettre à jour le champ de lieu avec le nom du lieu sélectionné
+        function updateInputWithLocationName(latlng, inputId) {
+            fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latlng.lat}&lon=${latlng.lng}`)
+                .then(response => response.json())
+                .then(data => {
+                    const country = data.address.country || `${latlng.lat}, ${latlng.lng}`;
+                    document.getElementById(inputId).value = country;
+                })
+                .catch(error => {
+                    console.error('Error fetching location name:', error);
+                    document.getElementById(inputId).value = `${latlng.lat}, ${latlng.lng}`;
+                });
+        }
+
+        // Fonction pour calculer la distance entre les deux marqueurs
+        function calculateDistance(start, end) {
+            const lat1 = start.lat;
+            const lon1 = start.lng;
+            const lat2 = end.lat;
+            const lon2 = end.lng;
+
+            const R = 6371; // Radius of the Earth in km
+            const dLat = ((lat2 - lat1) * Math.PI) / 180;
+            const dLon = ((lon2 - lon1) * Math.PI) / 180;
+            const a =
+                Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                Math.cos((lat1 * Math.PI) / 180) *
+                Math.cos((lat2 * Math.PI) / 180) *
+                Math.sin(dLon / 2) *
+                Math.sin(dLon / 2);
+            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+            const distance = R * c;
+
+            document.getElementById("distance").value = distance.toFixed(2);
+        }
+
+        // Réinitialiser la taille de la carte pour s'assurer qu'elle se rend correctement
+        setTimeout(() => {
+            map.invalidateSize();
+        }, 100);
+    </script>
+
 </body>
 
 </html>
